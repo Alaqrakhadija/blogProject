@@ -1,0 +1,20 @@
+{% extends "blogs/base_generic.html" %}
+
+{% block content %}
+  <h1>Blogger: {{ blogger.last_name }}</h1>
+<h3>Bio</h3>
+  <p>{{ blogger.bio }}</p> <!-- blogger detail link not yet defined -->
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Blogs list</h4>
+
+    {% for blog in blogger.blog_set.all %}
+      <hr>
+      <li>
+        <a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a> {{blog.post_date}}
+      </li>
+    {% endfor %}
+  </div>
+{% endblock %}
+
+
